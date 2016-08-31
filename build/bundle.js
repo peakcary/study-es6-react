@@ -62,7 +62,7 @@
 	
 	var attachElement = document.getElementById('react-app');
 	
-	_reactDom2.default.render(_react2.default.createElement(_root2.default, { phrase: 'ES6' }), attachElement);
+	_reactDom2.default.render(_react2.default.createElement(_root2.default, { phrase: 'ES62222' }), attachElement);
 
 /***/ },
 /* 1 */
@@ -21451,6 +21451,10 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _cartItem = __webpack_require__(173);
+	
+	var _cartItem2 = _interopRequireDefault(_cartItem);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -21458,6 +21462,13 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var order = {
+	  title: 'Fresh fruits package',
+	  image: 'http://7xpv9g.com1.z0.glb.clouddn.com/fruit-image.jpg',
+	  initialQty: 3,
+	  price: 8
+	};
 	
 	var Root = function (_React$Component) {
 	  _inherits(Root, _React$Component);
@@ -21471,13 +21482,10 @@
 	  _createClass(Root, [{
 	    key: 'render',
 	    value: function render() {
-	      return _react2.default.createElement(
-	        'h1',
-	        null,
-	        'Hello from ',
-	        this.props.phrase,
-	        '!'
-	      );
+	      return _react2.default.createElement(_cartItem2.default, { title: order.title,
+	        image: order.image,
+	        initialQty: order.initialQty,
+	        price: order.price });
 	    }
 	  }]);
 	
@@ -21485,6 +21493,153 @@
 	}(_react2.default.Component);
 	
 	exports.default = Root;
+
+/***/ },
+/* 173 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var CartItem = function (_React$Component) {
+	  _inherits(CartItem, _React$Component);
+	
+	  function CartItem(props) {
+	    _classCallCheck(this, CartItem);
+	
+	    var _this = _possibleConstructorReturn(this, (CartItem.__proto__ || Object.getPrototypeOf(CartItem)).call(this, props));
+	
+	    _this.state = {
+	      qty: props.initialQty,
+	      image: props.image,
+	      price: props.price,
+	      total: 0
+	    };
+	    return _this;
+	  }
+	
+	  _createClass(CartItem, [{
+	    key: "componentWillMount",
+	    value: function componentWillMount() {
+	      this.recalculateTotal();
+	    }
+	  }, {
+	    key: "increaseQty",
+	    value: function increaseQty() {
+	      this.setState({ qty: this.state.qty + 1 }, this.recalculateTotal);
+	    }
+	  }, {
+	    key: "decreaseQty",
+	    value: function decreaseQty() {
+	      this.setState({ qty: this.state.qty - 1 }, this.recalculateTotal);
+	    }
+	  }, {
+	    key: "recalculateTotal",
+	    value: function recalculateTotal() {
+	      this.setState({ total: this.state.qty * this.props.price });
+	    }
+	  }, {
+	    key: "render",
+	    value: function render() {
+	      return _react2.default.createElement(
+	        "aricle",
+	        { className: "row large-4" },
+	        _react2.default.createElement(
+	          "figure",
+	          { className: "text-center" },
+	          _react2.default.createElement(
+	            "p",
+	            null,
+	            _react2.default.createElement("img", { src: this.state.image, alt: "image" })
+	          ),
+	          _react2.default.createElement(
+	            "figcaption",
+	            null,
+	            _react2.default.createElement(
+	              "h2",
+	              null,
+	              this.state.title
+	            )
+	          )
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "large-4 column" },
+	          _react2.default.createElement(
+	            "strong",
+	            null,
+	            "Quantity: ",
+	            this.state.qty
+	          )
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "large-4 column" },
+	          _react2.default.createElement(
+	            "button",
+	            { onClick: this.increaseQty.bind(this), className: "button success" },
+	            "+"
+	          ),
+	          _react2.default.createElement(
+	            "button",
+	            { onClick: this.decreaseQty.bind(this), className: "button alert" },
+	            "-"
+	          )
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "large-4 column" },
+	          _react2.default.createElement(
+	            "strong",
+	            null,
+	            "Price per item:"
+	          ),
+	          " $",
+	          this.state.price
+	        ),
+	        _react2.default.createElement(
+	          "h3",
+	          { className: "large-12 column text-center" },
+	          "Total: $",
+	          this.state.total
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return CartItem;
+	}(_react2.default.Component);
+	
+	CartItem.propTypes = {
+	  title: _react2.default.PropTypes.string.isRequired,
+	  price: _react2.default.PropTypes.number.isRequired,
+	  initialQty: _react2.default.PropTypes.number
+	};
+	
+	CartItem.defaultProps = {
+	  title: 'Undefined Product',
+	  price: 0,
+	  initialQty: 0
+	};
+	
+	exports.default = CartItem;
 
 /***/ }
 /******/ ]);
