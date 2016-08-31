@@ -1,0 +1,45 @@
+{
+  "name": "study-es6-react",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "babel": {
+    "presets": [
+      "es2015-node5"
+    ]
+  },
+  "scripts": {
+    "start": "babel-node index.js",
+    "build": "webpack --config config/webpack.config.js",
+    "watch": "webpack-dev-server --config config/webpack.config.js --hot --inline --progress"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/peakcary/study-es6-react.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/peakcary/study-es6-react/issues"
+  },
+  "homepage": "https://github.com/peakcary/study-es6-react#readme",
+  "devDependencies": {
+    "babel-cli": "^6.14.0",
+    "babel-core": "^6.14.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-es2015-node5": "^1.2.0",
+    "babel-preset-react": "^6.11.1",
+    "co-views": "^2.1.0",
+    "koa": "^1.2.2",
+    "koa-logger": "^1.3.0",
+    "koa-route": "^2.4.2",
+    "koa-static": "^2.0.0",
+    "react": "^15.3.1",
+    "react-dom": "^15.3.1",
+    "swig": "^1.4.2",
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.15.0"
+  }
+}
