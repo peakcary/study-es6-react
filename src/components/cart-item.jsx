@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { IntervalEnhance } from "./interval-enhance.jsx"; // 1. 导入包裹组件
+
 class CartItem extends React.Component {
   constructor(props) {
     super(props);
@@ -45,6 +47,13 @@ class CartItem extends React.Component {
 
       <h3 className="large-12 column text-center">Total: ${this.state.total}</h3>
 
+
+      <p className="large-12 column">
+                         <strong>Time elapsed for interval: </strong>
+                         {this.props.seconds} ms
+                     </p>
+
+                     
     </aricle>
   }
 
@@ -62,4 +71,6 @@ CartItem.defaultProps = {
   initialQty: 0
 };
 
-export default CartItem;
+// export default CartItem
+
+export default IntervalEnhance(CartItem); // 2. 包裹原有的CartItem组件
